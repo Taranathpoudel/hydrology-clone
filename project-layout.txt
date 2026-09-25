@@ -1,0 +1,17 @@
+dhm/
+├── backend/
+│   ├── main.py              # FastAPI app + client + processor
+│   └── requirements.txt
+├── frontend/
+│   ├── app.py               # Flask app
+│   ├── requirements.txt
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── river_watch.html
+│   │   ├── data_watch.html
+│   │   └── compare.html
+│   └── static/
+│       ├── style.css
+│       └── app.js
+└── README.md

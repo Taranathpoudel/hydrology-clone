@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DHM Hydrology · {% block title %}Dashboard{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="preconnect" href="{{ api_base }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">🌊</span>
+      <span class="brand-name">DHM Hydrology</span>
+      <span class="brand-tag">Live · Nepal (NPT)</span>
+    </div>
+    <nav class="tabs">
+      <a href="/"           class="{{ 'active' if active=='dashboard' else '' }}">Dashboard</a>
+      <a href="/river-watch" class="{{ 'active' if active=='river' else '' }}">River Watch</a>
+      <a href="/data-watch"  class="{{ 'active' if active=='data' else '' }}">Data Watch</a>
+      <a href="/compare"     class="{{ 'active' if active=='compare' else '' }}">Compare</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <span>Source: hydrology.gov.np · Cached via FastAPI</span>
+    <span id="updated">—</span>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

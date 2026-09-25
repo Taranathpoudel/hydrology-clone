@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Data Watch{% endblock %}
+{% block content %}
+
+<section class="panel">
+  <header class="panel-head">
+    <h2>10-Minute Telemetry Watch</h2>
+    <div class="controls">
+      <input id="q" placeholder="Search…">
+      <select id="state">
+        <option value="all">All</option>
+        <option value="delayed">Delayed &gt;10m</option>
+        <option value="critical">Critical &gt;1h</option>
+        <option value="offline">Offline &gt;24h</option>
+        <option value="on_time">On-time ≤10m</option>
+      </select>
+      <select id="sort">
+        <option value="delay_desc">Longest delay</option>
+        <option value="delay_asc">Shortest delay</option>
+        <option value="name_asc">Name A→Z</option>
+      </select>
+    </div>
+  </header>
+  <div class="table-wrap">
+    <table class="data" id="dw-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Station</th><th>Basin</th><th>Index</th>
+          <th>Telemetry</th><th>Last seen</th><th>Delay</th>
+        </tr>
+      </thead>
+      <tbody><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script>DHM.renderDataWatch();</script>
+{% endblock %}

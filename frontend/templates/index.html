@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<section class="kpi-grid" id="kpi-grid">
+  <div class="kpi"><span class="kpi-title">Total</span><span class="kpi-val" data-k="total">–</span></div>
+  <div class="kpi kpi-amber"><span class="kpi-title">Delayed &gt;10m</span><span class="kpi-val" data-k="delayed">–</span></div>
+  <div class="kpi kpi-red"><span class="kpi-title">Critical / Offline</span><span class="kpi-val" data-k="critical">–</span></div>
+  <div class="kpi kpi-green"><span class="kpi-title">On-Time ≤10m</span><span class="kpi-val" data-k="on_time">–</span></div>
+  <div class="kpi kpi-blue"><span class="kpi-title">Rising</span><span class="kpi-val" data-k="rising">–</span></div>
+</section>
+
+<section id="hazard"></section>
+
+<section class="panel">
+  <header class="panel-head">
+    <h2>Top delayed stations</h2>
+    <a href="/data-watch" class="link">View all →</a>
+  </header>
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Station</th><th>Basin</th><th>Water</th>
+          <th>Trend</th><th>Warning Δ</th><th>Delay</th>
+        </tr>
+      </thead>
+      <tbody id="top-delayed"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script>DHM.renderDashboard();</script>
+{% endblock %}

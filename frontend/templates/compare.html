@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Compare{% endblock %}
+{% block content %}
+
+<section class="panel">
+  <header class="panel-head">
+    <h2>Near Warning vs Rising</h2>
+    <div class="controls">
+      <label>Near warning <input id="near" type="number" min="1" max="20" value="5"></label>
+      <label>Rising <input id="rising" type="number" min="1" max="20" value="5"></label>
+      <button id="reload">Reload</button>
+    </div>
+  </header>
+  <div class="table-wrap">
+    <table class="data cmp">
+      <thead>
+        <tr>
+          <th colspan="4" class="h-warn">Near Warning</th>
+          <th class="divider"></th>
+          <th colspan="4" class="h-rise">Rising</th>
+        </tr>
+        <tr>
+          <th>Station</th><th>Water</th><th>Warning Δ</th><th>Trend</th>
+          <th class="divider"></th>
+          <th>Station</th><th>Water</th><th>Warning Δ</th><th>Trend</th>
+        </tr>
+      </thead>
+      <tbody id="cmp-body"><tr><td colspan="9" class="empty">Loading…</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script>DHM.renderCompare();</script>
+{% endblock %}
